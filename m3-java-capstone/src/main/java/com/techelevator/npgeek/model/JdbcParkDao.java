@@ -43,8 +43,9 @@ public class JdbcParkDao implements ParkDao{
 			park.setDescription(results.getString("parkdescription"));
 			park.setEntryFee(results.getInt("entryfee"));
 			park.setNumberOfAnimalSpecies(results.getInt("numberofanimalspecies"));
+			allParks.add(park);
 		}
-		return null;
+		return allParks;
 	}
 	
 	

@@ -39,4 +39,43 @@ nav ul li a{
 	color: #4fb480;
 }
 
+.parks {
+	display: flex;
+	flex-direction: column;
+	padding-top: 30px;
+}
+
+#park {
+	display: flex;
+	flex-direction: row;
+	padding-bottom: 30px;
+}
+
+#park ul {
+	list-style: none;
+}
+
+#name {
+	font-size: 30px;
+	font-weight: bold;
+	padding-bottom: 15px;
+}
+
+#description {
+	font-size: 20px;
+	
+}
+
+.info {
+	padding-left: 30px;
+	margin: 0;
+	
+}
+
+#park img {
+	height: 250px;
+	width: auto;
+}
+
+
 
