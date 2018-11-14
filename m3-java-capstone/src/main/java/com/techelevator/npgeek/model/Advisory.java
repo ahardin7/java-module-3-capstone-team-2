@@ -22,9 +22,36 @@ public class Advisory {
 	
 	
 	public String getAdvisory() {
+		switch(forecast) {
+		case "cloudy":
+			break;
+		case "partly cloudy":
+			break;
+		case "rain":
+			advisory+="Please pack rain gear and wear waterproof shoes. ";
+			break;
+		case "snow":
+			advisory+="Please pack snow shoes. ";
+			break;
+		case "sunny":
+			advisory+="Please pack sunblock. ";
+			break;
+		case "thunderstorms":
+			advisory+="Please seek shelter and avoid hiking on exposed ridges. ";
+			break;	
+		}
 		
+		if(high > 75) {
+			advisory+="Please bring an extra gallon of water. ";
+		}
 		
+		if(low < 20) {
+			advisory+="Please take precautions. Frigid temperatures are expected. ";
+		}
 		
+		if((high - low) > 20) {
+			advisory+="Wear breathable layers :P ";
+		}
 		
 			return advisory;
 	}
