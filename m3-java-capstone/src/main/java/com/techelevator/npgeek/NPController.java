@@ -19,8 +19,11 @@ public class NPController {
 	@RequestMapping("/")
 	public String showHomePage(ModelMap modelHolder) {
 		List<Park> allParks = parkDao.getAllParks();
+		modelHolder.put("allParks", allParks);
 		return "homePage";
 	}
+	
+	
 	
 	
 	
