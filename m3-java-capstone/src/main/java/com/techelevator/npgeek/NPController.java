@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 import com.techelevator.npgeek.model.Park;
 import com.techelevator.npgeek.model.ParkDao;
+import com.techelevator.npgeek.model.Weather;
 
 @Controller
 public class NPController {
@@ -28,6 +29,8 @@ public class NPController {
 	public String showDetailPage(@RequestParam String parkCode, ModelMap modelHolder) {
 		Park selectedPark = parkDao.getParkByCode(parkCode);
 		modelHolder.put("park", selectedPark);
+		Weather parkWeather = parkDao.getWeatherByParkCode(parkCode);
+		modelHolder.put("weather", parkWeather);
 		return "detailPage";
 	}
 	

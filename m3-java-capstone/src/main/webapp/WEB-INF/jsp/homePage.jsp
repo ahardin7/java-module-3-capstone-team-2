@@ -8,10 +8,10 @@
     <c:param name="parkCode">${park.parkCode} </c:param>
     </c:url>
 	<div id="park">
-	<c:set var="image" value="${park.parkCode}" />
-	<c:set var="imageLowerCase" value="${fn:toLowerCase(image)}" />
+	<c:set var="parkCode" value="${park.parkCode}" />
+	<c:set var="parkCodeLowercase" value="${fn:toLowerCase(parkCode)}" />
 		<a href="${detailPage}">
-		<img src="img/parks/${imageLowerCase}.jpg" /> 
+		<img src="img/parks/${parkCodeLowercase}.jpg" /> 
 		</a>
 		<ul class="info">
 		<li id="name">${park.parkName}</li>
