@@ -22,7 +22,8 @@ public class Advisory {
 	
 	
 	public String getAdvisory() {
-		String advisory = "";
+		
+		
 		
 		
 			return advisory;
