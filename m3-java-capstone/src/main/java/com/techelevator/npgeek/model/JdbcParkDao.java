@@ -28,24 +28,40 @@ public class JdbcParkDao implements ParkDao{
 		SqlRowSet results = jdbcTemplate.queryForRowSet(sqlSelectAllReviews);
 		while(results.next()) {
 			Park park = new Park();
-			park.setParkCode(results.getString("parkcode"));
-			park.setParkName(results.getString("parkname"));
-			park.setState(results.getString("state"));
-			park.setAcreage(results.getInt("acreage"));
-			park.setElevationInFeet(results.getInt("elevationinfeet"));
-			park.setMilesOfTrail(results.getDouble("milesoftrail"));
-			park.setNumberOfCampsites(results.getInt("numberofcampsites"));
-			park.setClimate(results.getString("climate"));
-			park.setYearFounded(results.getInt("yearfounded"));
-			park.setAnnualVisitorCount(results.getInt("annualvisitorcount"));
-			park.setQuote(results.getString("inspirationalquote"));
-			park.setQuoteSource(results.getString("inspirationalquotesource"));
-			park.setDescription(results.getString("parkdescription"));
-			park.setEntryFee(results.getInt("entryfee"));
-			park.setNumberOfAnimalSpecies(results.getInt("numberofanimalspecies"));
+			populatePark(results, park);
 			allParks.add(park);
 		}
 		return allParks;
+	}
+
+	private void populatePark(SqlRowSet results, Park park) {
+		park.setParkCode(results.getString("parkcode"));
+		park.setParkName(results.getString("parkname"));
+		park.setState(results.getString("state"));
+		park.setAcreage(results.getInt("acreage"));
+		park.setElevationInFeet(results.getInt("elevationinfeet"));
+		park.setMilesOfTrail(results.getDouble("milesoftrail"));
+		park.setNumberOfCampsites(results.getInt("numberofcampsites"));
+		park.setClimate(results.getString("climate"));
+		park.setYearFounded(results.getInt("yearfounded"));
+		park.setAnnualVisitorCount(results.getInt("annualvisitorcount"));
+		park.setQuote(results.getString("inspirationalquote"));
+		park.setQuoteSource(results.getString("inspirationalquotesource"));
+		park.setDescription(results.getString("parkdescription"));
+		park.setEntryFee(results.getInt("entryfee"));
+		park.setNumberOfAnimalSpecies(results.getInt("numberofanimalspecies"));
+	}
+
+	@Override
+	public Park getParkByCode(String parkCode) {
+		Park park = new Park();
+		String sqlSelectAllReviews = "SELECT * FROM park WHERE parkcode = ?";
+		SqlRowSet results = jdbcTemplate.queryForRowSet(sqlSelectAllReviews, parkCode);
+		while(results.next()) {
+			populatePark(results, park);
+		}
+
+		return park;
 	}
 	
 	
