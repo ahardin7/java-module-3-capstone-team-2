@@ -5,7 +5,7 @@ public class Advisory {
 	private String forecast;
 	private int low;
 	private int high;
-	private String advisory;
+	private String advisory ="";
 	
 
 
@@ -33,11 +33,10 @@ public class Advisory {
 
 
 	private void setString() {
-		
 		switch(forecast) {
 		
 		case "rain":
-			advisory= "";
+			
 			advisory+="Please pack rain gear and wear waterproof shoes. ";
 			break;
 		case "snow":

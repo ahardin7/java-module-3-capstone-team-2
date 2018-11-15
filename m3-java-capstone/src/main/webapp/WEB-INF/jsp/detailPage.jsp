@@ -10,8 +10,8 @@
 
 	<ul class="parkDisplay">
 		<li><img src="img/parks/${parkCodeLowercase}.jpg" /></li>
-		<li>${park.parkName}</li>
-		<li>${park.description}</li>
+		<li id="parkName">${park.parkName}</li>
+		<li id="parkDescription">${park.description}</li>
 	</ul>
 
 </div>

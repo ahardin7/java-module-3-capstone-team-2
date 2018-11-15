@@ -126,7 +126,36 @@ ul{
 	width: 200px;
 	text-align: center;
 }
+
+#dayTitle{
+	font-weight: bold;
+	font-size: 20px;
+	z-index: +1;
+	position: relative;
+}
+
+#today img{
+	margin-top: -15px;
+}
+
+.parkDisplay {
+	padding: 30px;
+	margin: 0;
 	
+}
+.parkDisplay img{
+	width: 100%;
+	height: 75vh;
+}
+
+#parkName{
+	font-weight: bold;
+	font-size: 24px;
+}
+
+.parkDisplay li{
+	padding-bottom: 15px;
+}
 
 
 
