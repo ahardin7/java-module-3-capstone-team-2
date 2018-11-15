@@ -157,5 +157,18 @@ ul{
 	padding-bottom: 15px;
 }
 
+#surveyBody{
+	display: flex;
+	flex-direction: column;
+	
+}
 
+form{
+	display: flex;
+	flex-direction: column;
+}
+
+.formBody{
+	padding-bottom: 30px;
+}
 

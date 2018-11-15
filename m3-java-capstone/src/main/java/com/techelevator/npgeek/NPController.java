@@ -54,16 +54,23 @@ public class NPController {
 	}
 	
 	@RequestMapping(path="/survey", method=RequestMethod.POST)
-	public String submitRegisterForm(
+	public String submitSurvey(
 			@Valid @ModelAttribute("Survey") Survey registerFormValues,
 			BindingResult result,
-			RedirectAttributes flash
-	){
+			RedirectAttributes flash,
+			@RequestParam String parkName, String emailAddress, String state, String activityLevel){
+		
 		if(result.hasErrors()) {
 			flash.addFlashAttribute(BindingResult.MODEL_KEY_PREFIX + "Survey", result);
 			flash.addFlashAttribute("Survey", registerFormValues);
 			return "redirect:/survey";
 		}
+		
+		Survey addSurvey = new Survey();
+		addSurvey.setParkCode(parkName);
+		addSurvey.setEmailAddress(emailAddress);
+		addSurvey.setState(state);
+		addSurvey.setActivityLevel(activityLevel);
 		
 		flash.addFlashAttribute("message", "You have voted.");
 		
