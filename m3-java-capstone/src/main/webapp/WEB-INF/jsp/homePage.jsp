@@ -4,9 +4,11 @@
 
 <div class="parks">
 	<c:forEach var="park" items="${allParks}">
+	
 	<c:url var="detailPage" value="/detailPage">
     <c:param name="parkCode">${park.parkCode} </c:param>
     </c:url>
+        
 	<div id="park">
 	<c:set var="parkCode" value="${park.parkCode}" />
 	<c:set var="parkCodeLowercase" value="${fn:toLowerCase(parkCode)}" />

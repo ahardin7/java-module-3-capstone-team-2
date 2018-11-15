@@ -13,6 +13,7 @@ public class Advisory {
 		this.forecast = forecast;
 		this.low = low;
 		this.high = high;
+		setString();
 	}
 	
 	
@@ -22,12 +23,21 @@ public class Advisory {
 	
 	
 	public String getAdvisory() {
+		return advisory;
+	}
+
+
+
+
+
+
+
+	private void setString() {
+		
 		switch(forecast) {
-		case "cloudy":
-			break;
-		case "partly cloudy":
-			break;
+		
 		case "rain":
+			advisory= "";
 			advisory+="Please pack rain gear and wear waterproof shoes. ";
 			break;
 		case "snow":
@@ -53,6 +63,5 @@ public class Advisory {
 			advisory+="Wear breathable layers :P ";
 		}
 		
-			return advisory;
 	}
 }

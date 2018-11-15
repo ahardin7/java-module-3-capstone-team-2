@@ -3,46 +3,57 @@
 <c:import url="/WEB-INF/jsp/common/header.jsp" />
 
 
-<div>
+<div id="descriptionTop">
+	<c:set var="parkCode" value="${park.parkCode}" />
+	<c:set var="parkCodeLowercase" value="${fn:toLowerCase(parkCode)}" />
 
-	<ul class="parkDisplay>
-		<c:set var="image" value="${park.parkCode}" />
-		<c:set var="imageLowerCase" value="${fn:toLowerCase(image)}" />
-		<li><img src="img/parks/${imageLowerCase}.jpg" /></li>
+
+	<ul class="parkDisplay">
+		<li><img src="img/parks/${parkCodeLowercase}.jpg" /></li>
 		<li>${park.parkName}</li>
 		<li>${park.description}</li>
 	</ul>
-	
-	<ul class="weather">
-		<div class="today">
-			<ul id="todayList">
-				<li id="dayTitle">Today</li>
-				<li><img src="img/weather${weather.forecast}.png"/></li>
-				<li id="highLow">High ${weather.high} Low ${weather.low}</li>
-				<li id 
-				
-			
-			</ul>
-		</div>
-	
-		<li id="today">
-		
-		
-		
-		
-		
-		</li>
-	
-	
-	
-	</ul>
-
-
-
-
-
 
 </div>
+		<ul class="weather">
+	<c:forEach var="weather" items="${allWeather}">
+		
+		<c:if test="${weather.day == 1}">
+				<div id="today">
+				<li id="dayTitle">Today</li>
+				<li><img src="img/weather/${weather.forecast}.png" /></li>
+				
+				<div id="highLow">
+				<li class="high">High ${weather.high}</li>
+				<li class="low">Low ${weather.low}</li>
+				</div>
+				
+				<li id="advisory">${weather.advisory.advisory}</li>
+				</div>
+		</c:if>
+		<c:if test="${weather.day != 1}">
+			<div id="otherDays">
+			<li><img src="img/weather/${weather.forecast}.png" /></li>
+			<li class="high">High ${weather.high}</li>
+			<li class="low">Low ${weather.low}</li>
+			</div>
+		</c:if>
+		
+</div>
+</c:forEach>
+		</ul>
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

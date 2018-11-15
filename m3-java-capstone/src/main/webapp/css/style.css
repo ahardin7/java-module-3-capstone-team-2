@@ -77,5 +77,56 @@ nav ul li a{
 	width: auto;
 }
 
+.weather{
+	display: flex;	
+	list-style: none;
+	margin: 0;
+	padding-bottom: 30px;
+	padding-top: 30px;
+	padding-left: 0;
+	padding-right: 0;
+	
+
+}
+
+ul{
+	list-style: none;
+}
+
+#today{
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	padding-right: 150px;
+}
+#otherDays{
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+
+#otherDays img{
+	height: 175px;
+	width: auto;
+	
+}
+
+#highLow{
+	display: flex;
+	padding-bottom: 20px;
+	
+}
+
+#highLow li{
+	padding-left: 10px;
+	padding-right: 10px;
+}
+
+#advisory{
+	width: 200px;
+	text-align: center;
+}
+	
+
 
 

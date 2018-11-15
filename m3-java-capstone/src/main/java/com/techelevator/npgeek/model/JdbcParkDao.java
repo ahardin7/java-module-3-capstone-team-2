@@ -65,15 +65,17 @@ public class JdbcParkDao implements ParkDao{
 	}
 
 	@Override
-	public Weather getWeatherByParkCode(String parkCode) {
-		Weather weather = new Weather();
+	public List <Weather> getWeatherByParkCode(String parkCode) {
+		List <Weather> parkWeatherDays = new ArrayList<>();
 		String sqlSelectAllReviews = "SELECT * FROM weather WHERE parkcode = ?";
 		SqlRowSet results = jdbcTemplate.queryForRowSet(sqlSelectAllReviews, parkCode);
 		while(results.next()) {
+			Weather weather = new Weather();
 			populateWeather(results, weather);
+			parkWeatherDays.add(weather);
 		}
 
-		return weather;
+		return parkWeatherDays;
 	}
 
 	private void populateWeather(SqlRowSet results, Weather weather) {

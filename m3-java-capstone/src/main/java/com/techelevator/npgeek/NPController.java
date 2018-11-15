@@ -29,8 +29,8 @@ public class NPController {
 	public String showDetailPage(@RequestParam String parkCode, ModelMap modelHolder) {
 		Park selectedPark = parkDao.getParkByCode(parkCode);
 		modelHolder.put("park", selectedPark);
-		Weather parkWeather = parkDao.getWeatherByParkCode(parkCode);
-		modelHolder.put("weather", parkWeather);
+		List <Weather> parkWeatherDays = parkDao.getWeatherByParkCode(parkCode);
+		modelHolder.put("allWeather", parkWeatherDays);
 		return "detailPage";
 	}
 	

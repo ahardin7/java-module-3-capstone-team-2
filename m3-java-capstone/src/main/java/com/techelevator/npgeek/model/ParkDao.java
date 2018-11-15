@@ -8,7 +8,7 @@ public interface ParkDao {
 
 	Park getParkByCode(String parkCode);
 
-	Weather getWeatherByParkCode(String parkCode);
+	List <Weather> getWeatherByParkCode(String parkCode);
 
 	
 	
