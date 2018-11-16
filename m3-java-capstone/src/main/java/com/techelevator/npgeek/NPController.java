@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
+import com.techelevator.npgeek.model.FavoritePark;
 import com.techelevator.npgeek.model.Park;
 import com.techelevator.npgeek.model.ParkDao;
 import com.techelevator.npgeek.model.Survey;
@@ -83,8 +84,8 @@ public class NPController {
 	
 	@RequestMapping("/favorites")
 	public String showFavoritesPage(ModelMap modelHolder) {
-		List<Survey> allSurveys = surveyDao.getAllSurveys();
-		modelHolder.put("allSurveys", allSurveys);
+		List<FavoritePark> allFavoriteParks = surveyDao.getAllFavoriteParks();
+		modelHolder.put("allFavoriteParks", allFavoriteParks);
 		return "favoritesPage";
 	}
 	

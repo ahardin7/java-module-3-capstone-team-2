@@ -3,9 +3,10 @@
 
 <c:import url="/WEB-INF/jsp/common/header.jsp" />
 
-<c:forEach var="survey" items="${allSurveys}">
-
-
+<c:forEach var="favorite" items="${allFavoriteParks}">
+<ul>
+<li>${favorite.parkName} ${favorite.count}</li>
+</ul>
 
 
 
