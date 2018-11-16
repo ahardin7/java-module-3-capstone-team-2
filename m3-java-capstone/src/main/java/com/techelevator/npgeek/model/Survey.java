@@ -9,13 +9,13 @@ public class Survey {
 	
 	
 	
-	@NotBlank(message="Email is required")
+	@NotBlank(message="email is required")
 	@Email(message="email must be valid")
 	private String emailAddress;
 	
 	private String state;
 	
-	@NotBlank(message="Activity level is required")
+	@NotBlank(message="activity level is required")
 	private String activityLevel;
 	
 	private String parkCode;

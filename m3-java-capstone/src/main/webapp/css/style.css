@@ -3,6 +3,9 @@
 }
 
 body{
+	font-family: Helvetica, Sans-Serif;
+    color: #444444;
+    font-size: 9pt;
 	background-color: lightGrey;
 	padding: 0;
 	margin: 0;
@@ -54,7 +57,10 @@ nav ul li a{
 #park {
 	display: flex;
 	flex-direction: row;
-	padding-bottom: 30px;
+	padding-bottom: 15px;
+	padding-top: 15px;
+	border-bottom: 2px solid black;
+	
 }
 
 #park ul {
@@ -62,9 +68,13 @@ nav ul li a{
 }
 
 #name {
-	font-size: 30px;
+	color: black;
+	font-size: 35px;
 	font-weight: bold;
 	padding-bottom: 15px;
+	text-shadow: 
+	6px 3px 5px #909090;
+	
 }
 
 #description {
@@ -79,8 +89,18 @@ nav ul li a{
 }
 
 #park img {
-	height: auto;
+	margin-left: 20px;
+	height: 280px;
 	width: 345px;
+	border-top: 10px solid #f5f5f5;
+	border-left: 10px solid #f5f5f5;
+	border-right: 10px solid #f5f5f5;
+	border-bottom: 70px solid #f5f5f5;
+	box-shadow: 1px 1px 1px 1px hsl(0, 0%, 0%),
+	12px 12px 15px 2px #515151;
+	
+	
+	
 }
 
 .weather{
@@ -91,6 +111,7 @@ nav ul li a{
 	padding-top: 30px;
 	padding-left: 0;
 	padding-right: 0;
+	background-color: white;
 	
 
 }
