@@ -1,4 +1,9 @@
-﻿body{
+﻿header{
+	background-color: #13784c;
+}
+
+body{
+	background-color: lightGrey;
 	padding: 0;
 	margin: 0;
 }
@@ -9,6 +14,7 @@
 }
 
 nav{
+	background-color: #0c4f32;
 	display: flex;
 	flex-direction: column;
 	justify-content: center;
@@ -170,5 +176,19 @@ form{
 
 .formBody{
 	padding-bottom: 30px;
+}
+
+.favoriteTable img{
+	height: 100px;
+	width: auto;
+	
+}
+
+#count {
+	text-align: center;
+}
+
+.favoriteTable td{
+	padding: 20px;
 }
 

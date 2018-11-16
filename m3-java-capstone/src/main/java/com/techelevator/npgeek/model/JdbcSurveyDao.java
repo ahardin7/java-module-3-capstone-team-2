@@ -24,12 +24,13 @@ public class JdbcSurveyDao implements SurveyDao{
 	@Override
 	public List<FavoritePark> getAllFavoriteParks() {
 		List<FavoritePark> allFavoriteParks = new ArrayList<>();
-		String sqlSelectAllReviews = "SELECT parkname, count(*) FROM survey_result JOIN park ON park.parkcode = survey_result.parkcode GROUP BY parkname ORDER BY count(*) DESC ,parkname ASC";
+		String sqlSelectAllReviews = "SELECT park.parkcode, parkname, count(*) FROM survey_result JOIN park ON park.parkcode = survey_result.parkcode GROUP BY parkname, park.parkcode ORDER BY count(*) DESC ,parkname ASC";
 		SqlRowSet results = jdbcTemplate.queryForRowSet(sqlSelectAllReviews);
 		while(results.next()) {
 			FavoritePark favorite = new FavoritePark();
 			favorite.setCount(results.getInt("count"));
 			favorite.setParkName(results.getString("parkname"));
+			favorite.setParkCode(results.getString("parkcode"));
 			allFavoriteParks.add(favorite);
 		}
 		return allFavoriteParks;

@@ -4,7 +4,9 @@ public class FavoritePark {
 	
 	private String parkName;
 	private int count;
-	public String getParkName() {
+	private String parkCode;
+	
+	public String getParkName(){
 		return parkName;
 	}
 	public void setParkName(String parkName) {
@@ -15,6 +17,12 @@ public class FavoritePark {
 	}
 	public void setCount(int count) {
 		this.count = count;
+	}
+	public String getParkCode() {
+		return parkCode;
+	}
+	public void setParkCode(String parkCode) {
+		this.parkCode = parkCode;
 	}
 	
 	

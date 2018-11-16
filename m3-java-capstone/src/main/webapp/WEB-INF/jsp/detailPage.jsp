@@ -12,7 +12,17 @@
 		<li><img src="img/parks/${parkCodeLowercase}.jpg" /></li>
 		<li id="parkName">${park.parkName}</li>
 		<li id="parkDescription">${park.description}</li>
-	</ul>
+		<li id="state"> State: ${park.state}</li>
+		<li id="acreage"> Acreage: ${park.acreage}</li>
+		<li id="elevationInFeet"> Elevation In Feet: ${park.elevationInFeet}</li>
+		<li id="milesOfTrail"> Miles Of Trail: ${park.milesOfTrail}</li>
+		<li id="numberOfCampsites"> Number Of Campsites: ${park.numberOfCampsites}</li>
+		<li id="climate"> Climate: ${park.climate}</li>
+		<li id="yearFounded"> Year Founded: ${park.yearFounded}</li>
+		<li id="annualVisitorCount"> Annual Visitor Count: ${park.annualVisitorCount}</li>
+		<li id="quote"> Quote: ${park.quote} -  ${park.quoteSource}</li>
+		<li id="entryFee"> Entry Fee: ${park.entryFee}</li>
+		<li id="numberOfAnimalSpecies"> Number Of Animal Species: ${park.numberOfAnimalSpecies}</li>
 
 </div>
 		<ul class="weather">
