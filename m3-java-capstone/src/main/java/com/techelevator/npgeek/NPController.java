@@ -13,8 +13,10 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.SessionAttributes;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
+import com.techelevator.npgeek.model.Convert;
 import com.techelevator.npgeek.model.FavoritePark;
 import com.techelevator.npgeek.model.Park;
 import com.techelevator.npgeek.model.ParkDao;
@@ -22,7 +24,7 @@ import com.techelevator.npgeek.model.Survey;
 import com.techelevator.npgeek.model.SurveyDao;
 import com.techelevator.npgeek.model.Weather;
 
-
+@SessionAttributes("convert")
 @Controller
 public class NPController {
 	
@@ -45,6 +47,24 @@ public class NPController {
 		List <Weather> parkWeatherDays = parkDao.getWeatherByParkCode(parkCode);
 		modelHolder.put("allWeather", parkWeatherDays);
 		return "detailPage";
+	}
+	
+	@RequestMapping(path="/detailPage", method=RequestMethod.POST)
+	public String newDetailPage(@RequestParam String convert, String parkCode, int high, int low, ModelMap modelHolder) {
+		Park selectedPark = parkDao.getParkByCode(parkCode);
+		modelHolder.put("park", selectedPark);
+		List <Weather> parkWeatherDays = parkDao.getWeatherByParkCode(parkCode);
+		modelHolder.put("allWeather", parkWeatherDays);
+		if( ! modelHolder.containsAttribute("convert")) {
+			 Convert converter = new Convert(high, low);
+			converter.setUnits(convert);
+			modelHolder.addAttribute("convert", converter);
+			
+		}
+		if(convert.equals("celsius")) {
+			
+		}
+		return "/detailPage";
 	}
 	
 	@RequestMapping("/survey")

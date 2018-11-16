@@ -90,6 +90,7 @@ public class JdbcParkDao implements ParkDao{
 		weather.setHigh(high);
 		weather.setForecast(forecast);
 		weather.setAdvisory(new Advisory(forecast, low, high));
+		weather.setConvert(new Convert(high, low));
 		
 	}
 	

@@ -1,7 +1,8 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn"%>
 <c:import url="/WEB-INF/jsp/common/header.jsp" />
-
+<c:url value="/detailPage" var="detailUrl" />
+	<form action="${detailUrl}" method="POST">
 
 <div id="descriptionTop">
 	<c:set var="parkCode" value="${park.parkCode}" />
@@ -38,6 +39,18 @@
 				<li class="low">Low ${weather.low}</li>
 				</div>
 				
+				<div id="converterButton">
+				<input type="radio" name="convert" value="fahrenheit"> 
+				Fahrenheit
+				<input type="radio" name="convert" value="celsius">
+				Celsius
+				<input type="hidden" name="high" value="${weather.high}">
+				<input type="hidden" name="low" value="${weather.low}">
+				<input type="hidden" name="parkCode" value="${weather.parkCode}">
+				<input type="submit" value="submit">
+				</div>
+				
+				
 				<li id="advisory">${weather.advisory.advisory}</li>
 				</div>
 		</c:if>
@@ -67,7 +80,7 @@
 
 
 
-
+</form>
 
 
 

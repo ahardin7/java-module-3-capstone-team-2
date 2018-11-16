@@ -8,7 +8,7 @@ public class Weather {
 	private int 		high;
 	private String  	forecast;
 	private Advisory	advisory;
-	
+	private Convert		convert;
 	
 	
 	
@@ -48,6 +48,12 @@ public class Weather {
 	}
 	public void setAdvisory(Advisory advisory) {
 		this.advisory = advisory;
+	}
+	public Convert getConvert() {
+		return convert;
+	}
+	public void setConvert(Convert convert) {
+		this.convert = convert;
 	}
 	
 	
