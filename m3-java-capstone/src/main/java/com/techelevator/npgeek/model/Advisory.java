@@ -5,7 +5,7 @@ public class Advisory {
 	private String forecast;
 	private int low;
 	private int high;
-	private String advisory ="";
+	private String advisory = "";
 	
 
 

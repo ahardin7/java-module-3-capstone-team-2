@@ -39,11 +39,14 @@ public class JdbcSurveyDao implements SurveyDao{
 		survey.setEmailAddress(results.getString("emailaddress"));
 		survey.setState(results.getString("state"));
 		survey.setActivityLevel(results.getString("activitylevel"));
+		survey.setSurveyId(results.getInt("surveyid"));
 	}
 
 	@Override
 	public void save(Survey survey) {
-		// TODO Auto-generated method stub
-		
+		String sqlSaveSurvey = "INSERT INTO survey_result(parkcode, emailaddress, state, activitylevel) VALUES(?, ?, ?, ?)";
+		jdbcTemplate.update(sqlSaveSurvey, survey.getParkCode(), survey.getEmailAddress(), survey.getState(), survey.getActivityLevel());
 	}
+	
+	
 }

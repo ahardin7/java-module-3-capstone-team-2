@@ -18,6 +18,7 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 import com.techelevator.npgeek.model.Park;
 import com.techelevator.npgeek.model.ParkDao;
 import com.techelevator.npgeek.model.Survey;
+import com.techelevator.npgeek.model.SurveyDao;
 import com.techelevator.npgeek.model.Weather;
 
 
@@ -26,6 +27,8 @@ public class NPController {
 	
 	@Autowired 
 	private ParkDao parkDao;
+	@Autowired
+	private SurveyDao surveyDao;
 	
 	@RequestMapping("/")
 	public String showHomePage(ModelMap modelHolder) {
@@ -71,13 +74,19 @@ public class NPController {
 		addSurvey.setEmailAddress(emailAddress);
 		addSurvey.setState(state);
 		addSurvey.setActivityLevel(activityLevel);
+		surveyDao.save(addSurvey);
 		
 		flash.addFlashAttribute("message", "You have voted.");
 		
-		return "redirect:/confirmation";
+		return "redirect:/favorites";
 	}
 	
-	
+	@RequestMapping("/favorites")
+	public String showFavoritesPage(ModelMap modelHolder) {
+		List<Survey> allSurveys = surveyDao.getAllSurveys();
+		modelHolder.put("allSurveys", allSurveys);
+		return "favoritesPage";
+	}
 	
 	
 	
